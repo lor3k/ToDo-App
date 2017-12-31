@@ -1,0 +1,82 @@
+/* latin-ext */
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(https://fonts.gstatic.com/s/inconsolata/v16/BjAYBlHtW3CJxDcjzrnZCKE8kM4xWR1_1bYURRojRGc.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(https://fonts.gstatic.com/s/inconsolata/v16/BjAYBlHtW3CJxDcjzrnZCIgp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+  }
+  
+  /* latin-ext */
+  @font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(https://fonts.gstatic.com/s/inconsolata/v16/AIed271kqQlcIRSOnQH0yYgd9OEPUCN3AdYW0e8tat4.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(https://fonts.gstatic.com/s/inconsolata/v16/AIed271kqQlcIRSOnQH0yf79_ZuUxCigM2DespTnFaw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+  }
+
+  *{
+    font-family: 'Inconsolata', monospace;
+    font-size: 1em;
+  }
+
+body{
+    background-color: grey;
+    color: black;
+    padding: 10px;
+}
+
+button{
+    /* background-color: bisque; */
+    background: lightgrey;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* transition: 0.25s; */
+}
+
+button:hover{
+    border: 1px solid red;
+}
+
+.note{
+    background-color: sandybrown;
+    width: 200px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.note input, .note textarea{
+    border: none;
+    background-color: bisque;
+    padding: 5px;
+    width: 190px;
+    border-radius: 5px;
+}
+
+.note input[name=title]{
+    font-weight: 700;
+}
+
+.note textarea{
+    height: 100px;
+    margin: 10px 0;
+    resize: none;
+}
+

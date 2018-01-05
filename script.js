@@ -1,9 +1,12 @@
+(function(){
 let viewListButton = document.getElementsByClassName('view')[0];
 let addTaskButton = document.getElementsByClassName('add')[0];
 let main = document.getElementsByTagName('main')[0]
 
 viewListButton.addEventListener('click', viewList)
 addTaskButton.addEventListener('click', addNewTask)
+
+
 
 function addNewTask() {
     main.innerText = ''
@@ -53,7 +56,7 @@ function addNewTask() {
 
 function viewList() {
     main.innerText = ''
-    let tasksListItems = localStorage.getItem('taskList')
+    let tasksListItems = localStorage.getItem('taskList') || '{}'
     if (tasksListItems === '{}')
         main.innerText = 'Task list is empty. Add fist task!'
     else {
@@ -66,68 +69,73 @@ function viewList() {
     }
 }
 
-// function CreateNewTask(taskTitle, taskContent) {
-//     let note = document.createElement('div')
-//     let title = document.createElement('div')
-//     let content = document.createElement('div')
-//     let delNote = document.createElement('button')
-//     note.className = 'note'
-//     title.className = 'title'
-//     content.className = 'content'
-//     delNote.className = 'del'
-//     note.appendChild(title)
-//     note.appendChild(content)
-//     note.appendChild(delNote)
-//     title.innerText = taskTitle
-//     content.innerText = taskContent
-//     delNote.innerText = 'Delete'
-//     delNote.addEventListener('click', removeTaskFromTasksList)
-//     main.appendChild(note)
-
-//     function removeTaskFromTasksList() {
-//         let taskList = localStorage.getItem('taskList')
-//         taskList = JSON.parse(taskList)
-//         delete taskList[taskTitle]
-//         taskList = JSON.stringify(taskList)
-//         localStorage.setItem('taskList', taskList)
-//         main.removeChild(note)
-//         let alert = document.createElement('span')
-//         alert.innerText = 'Task removed from tasks list!\n'
-//         main.prepend(alert)
-//     }
-// }
-
-// not working :
-
 function Task(taskTitle, taskContent) {
-    this._taskTitle = taskTitle // ??????
-    this.element = document.createElement('div')
-    this.title = document.createElement('div')
-    this.content = document.createElement('div')
-    this.delNote = document.createElement('button')
-    this.element.className = 'note'
-    this.title.className = 'title'
-    this.content.className = 'content'
-    this.delNote.className = 'del'
-    this.element.appendChild(this.title)
-    this.element.appendChild(this.content)
-    this.element.appendChild(this.delNote)
-    this.title.innerText = taskTitle
-    this.content.innerText = taskContent
-    this.delNote.innerText = 'Delete'
-    this.delNote.addEventListener('click', this.removeFromList)
-    main.appendChild(this.element)
-}
+    let note = document.createElement('div')
+    let title = document.createElement('div')
+    let content = document.createElement('div')
+    let delNote = document.createElement('button')
+    note.className = 'note'
+    title.className = 'title'
+    content.className = 'content'
+    delNote.className = 'del'
+    note.appendChild(title)
+    note.appendChild(content)
+    note.appendChild(delNote)
+    title.innerText = taskTitle
+    content.innerText = taskContent
+    delNote.innerText = 'Delete'
+    delNote.addEventListener('click', removeTaskFromTasksList)
+    main.appendChild(note)
 
-Task.prototype.removeFromList = function() {
+    function removeTaskFromTasksList() {
         let taskList = localStorage.getItem('taskList')
         taskList = JSON.parse(taskList)
-        delete taskList[this._taskTitle]
-        console.log(this._taskTitle)
+        delete taskList[taskTitle]
         taskList = JSON.stringify(taskList)
         localStorage.setItem('taskList', taskList)
-        // main.removeChild(this.element)
+        main.removeChild(note)
         let alert = document.createElement('span')
         alert.innerText = 'Task removed from tasks list!\n'
         main.prepend(alert)
+    }
 }
+
+// not working :
+
+// function Task(taskTitle, taskContent) {
+//     this.taskTitle = taskTitle
+//     this.taskContent = taskContent
+//     this.element = document.createElement('div')
+//     this.title = document.createElement('div')
+//     this.content = document.createElement('div')
+//     this.delNote = document.createElement('button')
+//     this.element.className = 'note'
+//     this.title.className = 'title'
+//     this.content.className = 'content'
+//     this.delNote.className = 'del'
+//     this.element.appendChild(this.title)
+//     this.element.appendChild(this.content)
+//     this.element.appendChild(this.delNote)
+//     this.title.innerText = taskTitle
+//     this.content.innerText = taskContent
+//     this.delNote.innerText = 'Delete'
+//     let self = this
+//     this.delNote.addEventListener('click', this.removeFromList(self))
+//     main.appendChild(this.element)
+// }
+
+// Task.prototype.removeFromList = function(param) {
+//         let taskList = localStorage.getItem('taskList')
+//         taskList = JSON.parse(taskList)
+//         delete taskList[this.taskTitle]
+//         // console.log(this.taskTitle)
+//         taskList = JSON.stringify(taskList)
+//         localStorage.setItem('taskList', taskList)
+//         // console.log(this)
+//         // console.log(this.elements)
+//         // param.element.remove()
+//         let alert = document.createElement('span')
+//         alert.innerText = 'Task removed from tasks list!\n'
+//         main.prepend(alert)
+// }
+})()
